@@ -3,6 +3,7 @@
 <!-- Add new comment -->
 <a href="DoorProblem.html"><p> <b> Door Problem </b> <br /></a></p>
 
+<p> Here is the result of Door Problem </p>
 
 <?php
 $maxDoor = $_POST["maxDoor"];
@@ -63,6 +64,10 @@ if ($maxDoor != 0)
 	echo "<br />";
 	echo "Total steps = $steps";
 	
+}
+else
+{
+	echo "There is no door. Please be sure to insert the number of the door.";
 }
 ?>
 

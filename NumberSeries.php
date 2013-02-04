@@ -3,6 +3,8 @@
 
 <p> <b> Number Series </b> <br /> </p>
 
+<p> Write the next number of the series! </p> <br/>
+
 There is a series of number which is : <br/>
 2, 8, 12, 18, 20, 21, ..., ... <br/><br/><br/>
 
