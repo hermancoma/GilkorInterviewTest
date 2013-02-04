@@ -65,6 +65,10 @@ if ($maxDoor != 0)
 	echo "Total steps = $steps";
 	
 }
+else
+{
+	echo "There is no door. Please be sure to insert the number of the door.";
+}
 ?>
 
 </center>
