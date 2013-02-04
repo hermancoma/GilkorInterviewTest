@@ -3,6 +3,7 @@
 
 <a href="DoorProblem.html"><p> <b> Door Problem </b> <br /></a></p>
 
+<p> Here is the result of Door Problem </p>
 
 <?php
 $maxDoor = $_POST["maxDoor"];
