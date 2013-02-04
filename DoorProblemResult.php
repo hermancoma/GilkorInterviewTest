@@ -16,12 +16,18 @@ if ($maxDoor != 0)
 	{
 		$door[$i] = 0;
 	}
-		
+	
+	//calculate cost
+	$steps = 0;
+	
+	/**
+	 * Main algorithm 
+	 */
 	for ($employeeCounter=1; $employeeCounter <= $maxEmployee ; $employeeCounter++ )
 	{
 		for ($doorCounter=1; $doorCounter <= $maxDoor ; $doorCounter++)
 		{
-			if (($doorCounter >= $employeeCounter)&&(($doorCounter%$employeeCounter)==0 ))
+			if (($doorCounter >= $employeeCounter) && (($doorCounter%$employeeCounter)==0 ))
 			{
 				if ($door[$doorCounter] == 0)
 				{
@@ -31,9 +37,17 @@ if ($maxDoor != 0)
 				{
 					$door[$doorCounter] = 0;
 				}
+				
+				$steps ++;
 			}
+			
+			$steps ++;
 		}
+		
+		$steps ++;
 	}
+	
+	
 	for ($doorCounter=1; $doorCounter <= $maxDoor ; $doorCounter++)
 	{
 		if ($door[$doorCounter] == 1)
@@ -45,6 +59,10 @@ if ($maxDoor != 0)
 			echo "The door number " . $doorCounter . " is Closed <br>";
 		}
 	}
+	
+	echo "<br />";
+	echo "Total steps = $steps";
+	
 }
 ?>
 
