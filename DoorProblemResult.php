@@ -7,63 +7,45 @@
 
 <?php
 $maxDoor = $_POST["maxDoor"];
+
 if ($maxDoor != 0)
 {
-	//$maxDoor = 10;
-	$maxEmployee = 1000;
-	$door[]=array($maxDoor);
+	$maxDoor = 10;
+	$maxEmployee = 3;
+	$door = array();
 
-	for ($i=1; $i<=$maxDoor; $i++)
+	for ($i = 1; $i <= $maxDoor; $i++)
 	{
 		$door[$i] = 0;
 	}
 	
 	//calculate cost
 	$steps = 0;
-	
+
 	/**
 	 * Main algorithm 
 	 */
-	for ($employeeCounter=1; $employeeCounter <= $maxEmployee ; $employeeCounter++ )
+	for ($employeeCounter = 1; $employeeCounter <= $maxEmployee; $employeeCounter++)
 	{
-		for ($doorCounter=1; $doorCounter <= $maxDoor ; $doorCounter++)
+		for ($doorCounter = $employeeCounter; $doorCounter <= $maxDoor; $doorCounter+=$employeeCounter)
 		{
-			if (($doorCounter >= $employeeCounter) && (($doorCounter%$employeeCounter)==0 ))
-			{
-				if ($door[$doorCounter] == 0)
-				{
-					$door[$doorCounter] = 1;
-				}
-				else
-				{
-					$door[$doorCounter] = 0;
-				}
-				
-				$steps ++;
-			}
-			
-			$steps ++;
+			$door[$doorCounter] = intval(! $door[$doorCounter]);
+
+			$steps++;
 		}
-		
-		$steps ++;
+
+		$steps++;
+	}
+
+	foreach ($door as $doorNumber => $status)
+	{
+		echo "The door number $doorNumber is " . ($status ? "Opened" : "Closed") . "<br />";
 	}
 	
-	
-	for ($doorCounter=1; $doorCounter <= $maxDoor ; $doorCounter++)
-	{
-		if ($door[$doorCounter] == 1)
-		{
-			echo "The door number " . $doorCounter . " is Opened <br>";
-		}
-		else
-		{
-			echo "The door number " . $doorCounter . " is Closed <br>";
-		}
-	}
-	
+	echo "CODE : " , implode(',', $door);
+
 	echo "<br />";
 	echo "Total steps = $steps";
-	
 }
 else
 {
